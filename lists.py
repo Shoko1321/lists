@@ -1,5 +1,3 @@
-from ast import While
-import pdb
 class Node:
     def __init__(self, data):
         self.data = data
@@ -27,17 +25,39 @@ class mylist:
         while cur != None:
             ret += str(cur.data)
             cur = cur.next
-
+    
         ret += ')'
         return ret
     __repr__ = __str__
     def clear(self):
         pass
+    def pop(self):
+        pass
+    def copy(self):
+        pass
+    def extend(self):
+        pass
+    def insert(self):
+        pass
+    def remove(self):
+        pass
+    def sort(self):
+        pass
+    def count(self):
+        pass
+    def index(self):
+        pass
+    def reverse(self):
+        pass
+
+
 templist = mylist()
 templist.append(data=70)
 print(templist)
 
-# x.append(    x.copy()     x.extend(    x.insert(    x.remove(    x.sort(
-# x.clear()    x.count(     x.index(     x.pop(       x.reverse()
+# x.append(x)   x.copy(z)     x.extend(x)    x.insert(x)    x.remove(x)  
+# x.sort(x)  x.clear(x)    x.count(     x.index(x)     x.pop(x) 
+# x.reverse(x)
+
 # as a function
 # linked list
