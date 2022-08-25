@@ -7,8 +7,8 @@ class Node:
     __repr__ = __str__
 
 
-node1 = Node(data= 5)
-node2 = Node(data= 3)
+node1 = Node(data= 0)
+node2 = Node(data= 0)
 
 
 
@@ -17,17 +17,25 @@ class mylist:
         self.head = None
 
     def append(self,data):
-        self.head = Node(data = data)
+        new_node = Node(data = data)
+        if self.head is None:
+            self.head = new_node  
+        else:
+            last = self.head
+            while (last.next != None):
+                last = last.next
+            last.next = new_node
+            
+                
+        
     def __str__(self):
-
-        ret = '( '
+        ret = '<'
         cur = self.head
         while cur != None:
             ret += str(cur.data)
             cur = cur.next
-    
-        ret += ')'
-        return ret
+            ret += ','
+        return ret[:-1] + '>'
     __repr__ = __str__
     def clear(self):
         pass
@@ -50,11 +58,23 @@ class mylist:
     def reverse(self):
         pass
 
+ 
+x = mylist() 
+y = []
+print(x)
+x.append(3)
+y.append(3)
+print(x,y)
+x.append(4)
+y.append(4)
+print(x,y)
+x.append(3)
+y.append(3)
+print(x,y)
 
-templist = mylist()
-templist.append(data=70)
-print(templist)
-
+# x.pop()
+# y.pop()
+# print(x,y)
 # x.append(x)   x.copy(z)     x.extend(x)    x.insert(x)    x.remove(x)  
 # x.sort(x)  x.clear(x)    x.count(     x.index(x)     x.pop(x) 
 # x.reverse(x)
