@@ -16,6 +16,10 @@ class mylist:
     def __init__(self):
         self.head = None
 
+    def __getitem__(self,data):
+        pass
+        
+
     def append(self,data):
         new_node = Node(data = data)
         if self.head is None:
@@ -37,6 +41,9 @@ class mylist:
             ret += ','
         return ret[:-1] + '>'
     __repr__ = __str__
+
+
+
     def clear(self):
         pass
     def pop(self):
@@ -71,6 +78,9 @@ print(x,y)
 x.append(3)
 y.append(3)
 print(x,y)
+mylist[x] = 'bork'
+print(mylist)
+
 
 # x.pop()
 # y.pop()
