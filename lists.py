@@ -46,8 +46,31 @@ class mylist:
 
     def clear(self):
         pass
-    def pop(self):
-        pass
+    def pop(self,position):
+        if self.head is None:
+            return
+        index = 0
+        current = self.head
+        while current.next and index < position:
+            previous = current
+            current = current.next
+            index += 1
+            
+        if index == 0:
+            self.head = self.head.next
+        else:
+            previous.next = current.next       
+        print(current)
+        
+        
+
+
+        # result = self.head
+        # self.head = self.head.next
+        # print('The popped node is ',result)
+        
+
+        
     def copy(self):
         pass
     def extend(self):
@@ -60,15 +83,22 @@ class mylist:
         pass
     def count(self):
         pass
-    def index(self):
-        pass
+    def index(self,index):
+        current = self.head
+        count = 0
+
+        while (current):
+            if (count == index):
+                return current.data
+            count +=1
+            current = current.next
     def reverse(self):
         pass
 
  
 x = mylist() 
 y = []
-print(x)
+
 x.append(3)
 y.append(3)
 print(x,y)
@@ -78,8 +108,13 @@ print(x,y)
 x.append(3)
 y.append(3)
 print(x,y)
-mylist[x] = 'bork'
-print(mylist)
+x.pop(1)
+y.pop(1)
+print(x,y)
+
+
+
+
 
 
 # x.pop()
