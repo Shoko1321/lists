@@ -1,6 +1,5 @@
 
 
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -18,20 +17,31 @@ class mylist:
     def __init__(self):
         self.head = None
 
-    def __getitem__(self,index):
-        if isinstance(index, int):
-            if index < 0:
-                index = len(self) + index
-        elif isinstance(index, slice):
-            return[self[i] for i in range(len(self))[index]]
-        else:
-            raise ValueError(f'linked list cannot be indexed with values of type {type(index)}')
+    def __getitem__(self, index):
+
+        counter = 0
+        current = self.head
+        while current != None:
+            if index == counter:
+                return current.data
+            counter +=1  
+            current = current.next
+
+        raise IndexError
+
+    def __len__(self):
+        counter = 0
+        current = self.head
+        while current != None:
+            current = current.next
+            counter += 1
+        return counter
         
-        
-        
-        # cur = self.head
-        # count = 0
-        # while cur 
+    def __eq__(self, other):
+        if len(self) != len(other): return False
+        for it in range(len(self)):
+            if self[it] != other[it]: return False
+        return True
         
 
     def append(self,data):
@@ -44,9 +54,7 @@ class mylist:
                 last = last.next
             last.next = new_node
             
-
-    def __len__(self):
-        len([1,2,3,4])     
+  
         
     def __str__(self):
         ret = '<'
@@ -206,19 +214,29 @@ if __name__ == '__main__':
     node2 = Node(data= 0)
     x = mylist() 
     y = []
+    for it in range(1000):
+        x.append(it)
+        y.append(it)
 
-    x.append(3)
-    y.append(3)
+    print(len(x)) 
+    print(len(y))
+
+    print(x == y)
+
+    # x.append(3)
+    # y.append(3)
     # print(x,y)
-    x.append(3)
-    y.append(3)
+    # x.append(3)
+    # y.append(3)
+    # z = x[425]
+    # print(z)
     # print(x,y)
-    x.append(1)
-    y.append(1)
+    # x.append(1)
+    # y.append(1)
+    # # print(x,y)
+    # x.pop(1)
+    # y.pop(1)
     # print(x,y)
-    x.pop(1)
-    y.pop(1)
-    print(x,y)
     # x.reverse()
     # y.reverse()
     # print(x,y)
