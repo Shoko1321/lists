@@ -45,7 +45,12 @@ class TestmyList(unittest.TestCase):
         x.append(2); y.append(4)
         x.append(3); y.append(6)
         x.append(4); y.append(8)
+        x.pop();y.pop()
+        self.assertFalse(x==y)
+    
+
         
+
 
 
 
