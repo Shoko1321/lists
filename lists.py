@@ -173,55 +173,60 @@ class mylist:
             current = current.next
 
         return newList
-        # current = self.head
-        # newList = None
-        # tail = None
 
-        # while current:
-        #     if newList is None:
-        #         newList = Node(current.data, None)
-        #         tail = newList
-        #     else:
-        #         tail.next = Node()
-        #         tail = tail.next
-        #         tail.data = current.data
-        #         tail.next = None
-        #     current = current.next
-        # return newList
-
-        # current = self.head
-        # clone = None
-        # tail = None
-        # while current:
-        #     if clone is None:
-        #         clone = Node(current.data, None)
-        #         tail = clone
-        #     else:
-        #         tail.next = Node()
-        #         tail = tail.next
-        #         tail.data = current.data
-        #         tail.next = None
-        #     current = current.next
             
     def extend(self):
         pass
-    def insert(self):
-        pass
-    def remove(self):
-        pass
+    def insert(self, prev_node, data):
+        if prev_node is None:
+            print ("does not compute")
+            return
+        new_node = Node(data = data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+        
+        
+    def remove(self,element):
+        temp = self.head
+        if(temp is not None):
+            if (temp.data == element):
+                self.head = temp.next
+                temp = None
+                return
+        while(temp is not None):
+            if temp.data == element:
+                break
+            prev = temp
+            temp = temp.next
+
+        if(temp == None):
+            raise ValueError
+        prev.next = temp.next
+        temp = None
+
+
+
+
+        
 if __name__ == '__main__':
     node1 = Node(data= 0)
     node2 = Node(data= 0)
     x = mylist() 
     y = []
-    for it in range(1000):
-        x.append(it)
-        y.append(it)
 
-    print(len(x)) 
-    print(len(y))
-
-    print(x == y)
+    x.append(2)
+    y.append(2)
+    x.append(3)
+    y.append(3)
+    x.append(4)
+    y.append(4)
+    print(x,y)
+    x.insert(2,69)
+    y.insert(2,69)
+    print(x,y)
+    # x.remove(2)
+    # y.remove(2)
+    # print(x,y)
 
     # x.append(3)
     # y.append(3)
