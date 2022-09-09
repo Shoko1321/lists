@@ -177,7 +177,7 @@ class mylist:
             
     def extend(self):
         pass
-    def insert(self, prev_node, data):
+    def insert(self, prev_node, data):#no work
         if prev_node is None:
             print ("does not compute")
             return
@@ -214,50 +214,26 @@ if __name__ == '__main__':
     x = mylist() 
     y = []
 
+    
+    # x.insert(2,69)
+    # y.insert(2,69)
+    x.append(1)
+    y.append(1)
     x.append(2)
     y.append(2)
     x.append(3)
     y.append(3)
-    x.append(4)
-    y.append(4)
     print(x,y)
-    x.insert(2,69)
-    y.insert(2,69)
-    print(x,y)
-    # x.remove(2)
-    # y.remove(2)
-    # print(x,y)
 
-    # x.append(3)
-    # y.append(3)
-    # print(x,y)
-    # x.append(3)
-    # y.append(3)
-    # z = x[425]
-    # print(z)
-    # print(x,y)
-    # x.append(1)
-    # y.append(1)
-    # # print(x,y)
-    # x.pop(1)
-    # y.pop(1)
+    
+
     # print(x,y)
     # x.reverse()
     # y.reverse()
     # print(x,y)
     # x.sort()
     # y.sort()
-    # try:
-    #     print(x.index(2))
-    # except ValueError:
-    #     print("2 is not in xa")
-
-    # try:
-        
-    #     print(y.index(5))
-
-    # except ValueError:
-    #     print("5 is no index")
+    
     # x.clear()
     # y.clear()
     # print(x,y)
