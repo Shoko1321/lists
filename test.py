@@ -1,3 +1,4 @@
+from re import X
 import unittest
 from lists import Node, mylist
 import random
@@ -91,6 +92,24 @@ class TestmyList(unittest.TestCase):
         y.remove(0) 
         self.assertFalse(len(x)==len(y))
         
+    def test_copy_1(self):
+        x = []
+        y = mylist()
+        while len(x) <= 5:
+            for it in range(50):
+                x.append(it)
+        y = x.copy()
+        self.assertTrue(x == y)
+
+    # def test_copy_2(self):
+    #     y = []
+    #     x = mylist()
+    #     while len(x) <= 5:
+    #         for it in range(50):
+    #             x.append(it)
+    #     y = x.copy()
+    #     self.assertTrue(x == y)
+
 
 
 
