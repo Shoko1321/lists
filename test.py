@@ -52,20 +52,18 @@ class TestmyList(unittest.TestCase):
     def test_remove_1(self):
         x = []
         y = mylist()
-        while len(y) <= 5:
-            for it in range(100):
-                x.append(it)
-                y.append(it)
+        for it in range(100):
+            x.append(it)
+            y.append(it)
         x.remove(1)
         y.remove(1)
         self.assertTrue(x==y)
     def test_remove_2(self):
         x = []
         y = mylist()
-        while len(y) <= 5:
-            for it in range(100):
-                x.append(it)
-                y.append(it)
+        for it in range(100):
+            x.append(it)
+            y.append(it)
         x.remove(3)
         y.remove(4)
         self.assertFalse(x==y)
@@ -73,20 +71,18 @@ class TestmyList(unittest.TestCase):
     def test_remove_3(self):
         x = []
         y = mylist()
-        while len(y) <= 5:
-            for it in range(100):
-                x.append(it)
-                y.append(it)
+        for it in range(100):
+            x.append(it)
+            y.append(it)
         x.remove(4)
         y.remove(4)    
         self.assertTrue(len(x)==len(y))
     def test_remove_4(self):
         x = []
         y = mylist()
-        while len(y) <= 5:
-            for it in range(100):
-                x.append(it)
-                y.append(it)
+        for it in range(100):
+            x.append(it)
+            y.append(it)
         x.remove(4)
         y.remove(4)   
         y.remove(0) 
@@ -101,14 +97,13 @@ class TestmyList(unittest.TestCase):
         y = x.copy()
         self.assertTrue(x == y)
 
-    # def test_copy_2(self):
-    #     y = []
-    #     x = mylist()
-    #     while len(x) <= 5:
-    #         for it in range(50):
-    #             x.append(it)
-    #     y = x.copy()
-    #     self.assertTrue(x == y)
+    def test_copy_2(self):
+        y = []
+        x = mylist()
+        for it in range(50):
+            x.append(it)
+        y = x.copy()
+        self.assertTrue(x == y)
 
 
 
