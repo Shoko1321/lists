@@ -1,9 +1,22 @@
-from re import X
+
 import unittest
 from lists import Node, mylist
 import random
 
 class TestmyList(unittest.TestCase):
+
+    def test_reverse_1(self):
+        y = []
+        x = mylist()
+        for it in range(12):
+            x.append(it)
+            y.append(it)
+        x.reverse()
+        y.reverse()
+        self.assertTrue(x == y)
+
+
+
 
     def test_append1(self):
         x = []
@@ -91,22 +104,20 @@ class TestmyList(unittest.TestCase):
     def test_copy_1(self):
         x = []
         y = mylist()
-        while len(x) <= 5:
-            for it in range(50):
-                x.append(it)
-        y = x.copy()
-        self.assertTrue(x == y)
-
-    def test_copy_2(self):
-        y = []
-        x = mylist()
         for it in range(50):
             x.append(it)
         y = x.copy()
         self.assertTrue(x == y)
 
-
-
+    def test_copy_2(self):
+        x = []
+        y = mylist()
+        x.append(2)
+        x.append(3)
+        x.append(4)
+        y = x.copy()
+        x.append(12)
+        self.assertFalse(x==y)
 
 
 
