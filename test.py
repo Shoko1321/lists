@@ -118,19 +118,7 @@ class TestmyList(unittest.TestCase):
         x.append(12)
         self.assertFalse(x==y)
 
-    def test_sort_1(self):
-        x = []
-        y= mylist()
-        x.append(4) 
-        y.append(4)
-        x.append(3) 
-        y.append(3)
-        x.append(2)
-        y.append(2)
-        breakpoint()
-        x.sort()
-        # y.sort()
-        self.assertTrue(x==y)
+
 
 
 

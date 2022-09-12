@@ -1,7 +1,7 @@
 
 
 class Node:
-    def __init__(self, data,x=None):
+    def __init__(self, data):
         self.data = data
         self.next = None
     def __str__(self):
@@ -118,12 +118,12 @@ class mylist:
         self.head = sorted
         return self.head
 
-    def index(self,value):
+    def index(self,data):
         current = self.head
         count = 0
 
         while (current):
-            if(current.data == value):
+            if(current.data == data):
                 return count
             count +=1
             current = current.next
@@ -178,13 +178,24 @@ class mylist:
     def extend(self):
         pass
 
-    def insert(self, prev_node, data):#no work
-        if prev_node is None:
-            print ("does not compute")
-            return
-        new_node = Node(data = data)
-        new_node.next = prev_node.next
-        prev_node.next = new_node
+    def insert(self,input,data):#no work
+        cur = self.head
+        index = 0
+        while cur != None:
+            breakpoint()
+            if index == input:
+                data = cur.next
+                data = Node(cur.data)
+            else:
+                cur = cur.next
+        index += 1
+                
+        
+        
+        
+            
+
+            
         
         
     def remove(self,element):
@@ -216,8 +227,7 @@ if __name__ == '__main__':
     y = []
 
     
-    # x.insert(2,69)
-    # y.insert(2,69)
+ 
     x.append(6)
     y.append(6)
     x.append(2)
@@ -225,17 +235,20 @@ if __name__ == '__main__':
     x.append(3)
     y.append(3)
     print(x,y)
+    x.insert(2,69)
+    y.insert(2,69)
+    print(x,y)
 
     
 
 
     # print(x,y)
-    x.sort()
-    y.sort()
+    # x.sort()
+    # y.sort()
     
     # x.clear()
     # y.clear()
-    print(x,y)
+    # print(x,y)
     # print(x.count(3))
     # print(y.count(3))
     # print(x.copy())
