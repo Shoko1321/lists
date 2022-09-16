@@ -4,6 +4,7 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+
     def __str__(self):
         return "Node(" + str(self.data) + ")"
     __repr__ = __str__
@@ -39,6 +40,16 @@ class mylist:
             current = current.next
 
         raise IndexError
+                
+    def __str__(self):
+        ret = '<'
+        cur = self.head
+        while cur != None:
+            ret += str(cur.data)
+            cur = cur.next
+            ret += ','
+        return ret[:-1] + '>'
+    __repr__ = __str__
 
     def __len__(self):
         counter = 0
@@ -47,7 +58,17 @@ class mylist:
             current = current.next
             counter += 1
         return counter
-        
+
+    def __iter__(self):#halp
+        curNode = self.head
+        while curNode:
+            yield curNode.data
+            curNode = curNode.next
+
+
+    def __add__(self):
+        pass
+
     def __eq__(self, other):
         if len(self) != len(other): return False
         for it in range(len(self)):
@@ -65,17 +86,11 @@ class mylist:
                 last = last.next
             last.next = new_node
             
-  
-        
-    def __str__(self):
-        ret = '<'
-        cur = self.head
-        while cur != None:
-            ret += str(cur.data)
-            cur = cur.next
-            ret += ','
-        return ret[:-1] + '>'
-    __repr__ = __str__
+    def add(self,item):
+        new_node = Node(item)
+        new_node.next = self.head
+        self.head = new_node
+
 
 
 
@@ -189,17 +204,31 @@ class mylist:
     def extend(self):
         pass
 
-    def insert(self,input,data):#no work
-        cur = self.head
-        index = 0
-        while cur != None:
-            breakpoint()
-            if index == input:
-                data = cur.next
-                data = Node(cur.data)
-            else:
-                cur = cur.next
-        index += 1
+    def insert(self,position,data):#no work
+        head = self.head
+        if(position < 1):
+            newNode = Node(data)
+            newNode.next = self.head
+            head = newNode
+        else:
+            while (position != 0):
+                position -= 1
+
+                if (position == 1):
+                    newNode = data
+                    newNode = head.next
+                    head.next = newNode
+                    break
+                head = head.next
+                if head == None:
+                    break
+            if position != 1:
+                print('position out of range')
+        return head
+        
+
+
+        
                 
         
         
