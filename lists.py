@@ -168,10 +168,7 @@ class mylist:
         self.head = prev
         
     def clear(self):
-        while(self.head != None):
-            temp = self.head
-            self.head = self.head.next
-            temp = None
+       self.head = None
 
     def count(self,intake):
         current = self.head
@@ -275,8 +272,11 @@ if __name__ == '__main__':
     x.append(3)
     y.append(3)
     print(x,y)
-    x.insert(2,69)
-    y.insert(2,69)
+    # x.insert(2,69)
+    # y.insert(2,69)
+    print(x,y)
+    x.clear()
+    y.clear()
     print(x,y)
 
     
