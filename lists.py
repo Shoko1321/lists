@@ -1,9 +1,12 @@
+# multiplication add, not = , pop doesnt return last element,
+#  sort doesnt work, refactor clear, extend, tests for everything
 
 
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.tail = data
 
     def __str__(self):
         return "Node(" + str(self.data) + ")"
@@ -275,8 +278,8 @@ if __name__ == '__main__':
     # x.insert(2,69)
     # y.insert(2,69)
     print(x,y)
-    x.clear()
-    y.clear()
+    x.pop()
+    y.pop()
     print(x,y)
 
     
