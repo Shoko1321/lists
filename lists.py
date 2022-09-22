@@ -1,3 +1,6 @@
+# multiplication add, not = , 
+# pop doesnt return last element, sort doesnt work, refactor clear, 
+# extend, tests for everything
 class Node:
     def __init__(self, data):
         self.data = data
@@ -65,9 +68,32 @@ class mylist:
             curNode = curNode.next
 
 
-    def __add__(self):
-        pass
+    def __add__(self,first,second):
+        curr1 = self.reverse(first)
+        curr2 = self.reverse(second)
 
+        sum = 0
+        carry = 0
+        res = None
+        prev = None
+
+        while curr1 is not None or curr2 is not None:
+            sum = carry + (curr1.data if curr1 else 0) + (curr2.data if curr2 else 0)
+
+            carry = (1 if sum >= 10 else 0)
+            sum = sum % 10
+            temp = Node(sum)
+            if res is None:
+                res = temp
+
+            else:
+                prev.next = temp
+
+        if carry > 0:
+            temp.next = Node(carry)
+
+        ans = self.reverse(res)
+        return ans
     def __eq__(self, other):
         if len(self) != len(other): return False
         for it in range(len(self)):
@@ -85,10 +111,7 @@ class mylist:
                 last = last.next
             last.next = new_node
             
-    def add(self,item):
-        new_node = Node(item)
-        new_node.next = self.head
-        self.head = new_node
+
 
 
 
@@ -117,19 +140,7 @@ class mylist:
         else:
             previous.next = current.next    
         print(f' The popped node is {current}')
-    
-    # def pop_back(self):
-    #     if(self.head != None):
-    #         if(self.head.next == None):
-    #             self.head = None
-    #         else:
-    #             temp = self.head
-    #             while(temp.next.next != None):
-    #                 temp = temp.next
-    #             last_Node = temp.next
-    #             temp.next = None
-    #             print(last_Node)
-    #             last_Node = None
+
                 
             
         
@@ -271,12 +282,10 @@ if __name__ == '__main__':
     x.append(3)
     y.append(3)
     print(x,y)
-    # x.insert(2,69)
-    # y.insert(2,69)
+    x.insert(2,69)
+    y.insert(2,69)
     print(x,y)
-    x.pop(0)
-    y.pop(0)
-    print(x,y)
+  
 
     
 

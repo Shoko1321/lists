@@ -61,6 +61,24 @@ class TestmyList(unittest.TestCase):
         x.pop();y.pop()
         self.assertFalse(x==y)
 
+    def test_pop4(self):
+        x = mylist()
+        x.append(1)
+        x.append(3)
+        x.append(5)
+        x.append(7)
+        x.pop(2)
+        self.assertTrue(current = 5)
+
+    def test_pop5(self):
+        x = mylist()
+        x.append(1)
+        x.append(3)
+        x.append(5)
+        x.append(7)
+        x.pop()
+        self.assertTrue(current = 7)
+
     def test_remove_1(self):
         x = []
         y = mylist()
