@@ -1,7 +1,3 @@
-# multiplication add, not = , pop doesnt return last element,
-#  sort doesnt work, refactor clear, extend, tests for everything
-
-
 class Node:
     def __init__(self, data):
         self.data = data
