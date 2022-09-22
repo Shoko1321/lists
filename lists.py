@@ -94,7 +94,7 @@ class mylist:
 
 
 
-    def pop(self,position=None):
+    def pop(self,position=None):# 0 index bugged.
 
         if not position: position = len(self)-1
  
@@ -107,7 +107,7 @@ class mylist:
             self.head = None
         
         current = self.head
-        while current.next and index < position:
+        while current.next and index <= position:
             previous = current
             current = current.next
             index += 1
@@ -115,8 +115,8 @@ class mylist:
         if index == 0:
             self.head = self.head.next
         else:
-            previous.next = current.next       
-        print(current)
+            previous.next = current.next    
+        print(f' The popped node is {current}')
     
     # def pop_back(self):
     #     if(self.head != None):
@@ -274,8 +274,8 @@ if __name__ == '__main__':
     # x.insert(2,69)
     # y.insert(2,69)
     print(x,y)
-    x.pop()
-    y.pop()
+    x.pop(0)
+    y.pop(0)
     print(x,y)
 
     
