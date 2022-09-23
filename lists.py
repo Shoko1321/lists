@@ -61,14 +61,14 @@ class mylist:
             counter += 1
         return counter
 
-    def __iter__(self):#halp
+    def __iter__(self):#also broke
         curNode = self.head
         while curNode:
             yield curNode.data
             curNode = curNode.next
 
 
-    def __add__(self,first,second):
+    def __add__(self,first,second):#it broke
         curr1 = self.reverse(first)
         curr2 = self.reverse(second)
 
@@ -118,27 +118,25 @@ class mylist:
 
 
     def pop(self,position=None):# 0 index bugged.
-
-        if not position: position = len(self)-1
- 
         index = 0
+        breakpoint()
+        if not position: position = len(self)-1
         if self.head is None:
             return
         if position is None:
             while (self.head.next != None):
                 self.head = self.head.next
             self.head = None
-        
         current = self.head
-        while current.next and index <= position:
+        while current.next == position and index <= position:
             previous = current
             current = current.next
             index += 1
-            
         if index == 0:
             self.head = self.head.next
         else:
-            previous.next = current.next    
+            previous.next = current.next
+        #issue in this area, current never points to proper node? possible rebuild
         print(f' The popped node is {current}')
 
                 
@@ -282,9 +280,12 @@ if __name__ == '__main__':
     x.append(3)
     y.append(3)
     print(x,y)
-    x.insert(2,69)
-    y.insert(2,69)
+    # x.insert(2,69)
+    # y.insert(2,69)
+    x.pop(1)
+    y.pop(1)
     print(x,y)
+
   
 
     
