@@ -1,6 +1,4 @@
-# multiplication add, not = , 
-# pop doesnt return last element, sort doesnt work, refactor clear, 
-# extend, tests for everything
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -61,14 +59,34 @@ class mylist:
             counter += 1
         return counter
 
-    def __iter__(self):#also broke
+    def __iter__(self):#halp
         curNode = self.head
         while curNode:
             yield curNode.data
             curNode = curNode.next
 
 
-    def __add__(self,first,second):#it broke
+    def __add__(self):
+        pass
+
+    def __eq__(self, other):
+        if len(self) != len(other): return False
+        for it in range(len(self)):
+            if self[it] != other[it]: return False
+        return True
+        
+
+    def append(self,data):
+        new_node = Node(data = data)
+        if self.head is None:
+            self.head = new_node  
+        else:
+            last = self.head
+            while (last.next != None):
+                last = last.next
+            last.next = new_node
+            
+    def add(self,first,second):
         curr1 = self.reverse(first)
         curr2 = self.reverse(second)
 
@@ -94,41 +112,18 @@ class mylist:
 
         ans = self.reverse(res)
         return ans
-    def __eq__(self, other):
-        if len(self) != len(other): return False
-        for it in range(len(self)):
-            if self[it] != other[it]: return False
-        return True
-        
-
-    def append(self,data):
-        new_node = Node(data = data)
-        if self.head is None:
-            self.head = new_node  
-        else:
-            last = self.head
-            while (last.next != None):
-                last = last.next
-            last.next = new_node
-            
 
 
 
 
-
-
-    def pop(self,position=None):# 0 index bugged.
-        index = 0
-        breakpoint()
-        if not position: position = len(self)-1
+    def pop(self,position=None):
+        if position is None:
+            position = len(self)-1
         if self.head is None:
             return
-        if position is None:
-            while (self.head.next != None):
-                self.head = self.head.next
-            self.head = None
+        index = 0
         current = self.head
-        while current.next == position and index <= position:
+        while current.next and index < position:
             previous = current
             current = current.next
             index += 1
@@ -136,8 +131,7 @@ class mylist:
             self.head = self.head.next
         else:
             previous.next = current.next
-        #issue in this area, current never points to proper node? possible rebuild
-        print(f' The popped node is {current}')
+        print(f'{current.data} was popped')
 
                 
             
@@ -282,11 +276,10 @@ if __name__ == '__main__':
     print(x,y)
     # x.insert(2,69)
     # y.insert(2,69)
-    x.pop(1)
-    y.pop(1)
+    x.pop(2)
+    y.pop(2)
     print(x,y)
 
-  
 
     
 
