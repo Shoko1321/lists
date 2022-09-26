@@ -47,7 +47,7 @@ class mylist:
         while cur != None:
             ret += str(cur.data)
             cur = cur.next
-            ret += ','
+            ret += ', '
         return ret[:-1] + '>'
     __repr__ = __str__
 
