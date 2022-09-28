@@ -65,4 +65,6 @@ class Pop_Test(unittest.TestCase):
         self.assertTrue(x == y)
 
     def test_pop_7(self):
-        
+        x = mylist()
+        x.pop()
+        self.assertRaises(IndexError)

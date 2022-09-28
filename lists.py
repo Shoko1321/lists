@@ -117,6 +117,8 @@ class mylist:
 
 
     def pop(self,position=None):
+        if self.head is None:
+            raise IndexError
         if position is None:
             position = len(self)-1
         if self.head is None:
@@ -267,17 +269,17 @@ if __name__ == '__main__':
 
     
  
-    x.append(6)
-    y.append(6)
-    x.append(2)
-    y.append(2)
-    x.append(3)
-    y.append(3)
+    # x.append(6)
+    # y.append(6)
+    # x.append(2)
+    # y.append(2)
+    # x.append(3)
+    # y.append(3)
     print(x,y)
     # x.insert(2,69)
     # y.insert(2,69)
-    x.pop(2)
-    y.pop(2)
+    x.pop()
+    y.pop()
     print(x,y)
 
 
