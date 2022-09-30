@@ -69,6 +69,9 @@ class mylist:
     def __add__(self):
         pass
 
+    def __mult__(self):
+        pass
+
     def __eq__(self, other):
         if len(self) != len(other): return False
         for it in range(len(self)):
@@ -86,36 +89,6 @@ class mylist:
                 last = last.next
             last.next = new_node
             
-    def add(self,first,second):
-        curr1 = self.reverse(first)
-        curr2 = self.reverse(second)
-
-        sum = 0
-        carry = 0
-        res = None
-        prev = None
-
-        while curr1 is not None or curr2 is not None:
-            sum = carry + (curr1.data if curr1 else 0) + (curr2.data if curr2 else 0)
-
-            carry = (1 if sum >= 10 else 0)
-            sum = sum % 10
-            temp = Node(sum)
-            if res is None:
-                res = temp
-
-            else:
-                prev.next = temp
-
-        if carry > 0:
-            temp.next = Node(carry)
-
-        ans = self.reverse(res)
-        return ans
-
-
-
-
     def pop(self,position=None):
         if self.head is None:
             raise IndexError
