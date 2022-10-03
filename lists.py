@@ -1,4 +1,10 @@
 
+
+
+
+from uuid import getnode
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -65,12 +71,18 @@ class mylist:
             yield curNode.data
             curNode = curNode.next
 
+    def __radd__(self,other):#Should work?
+        if other == 0:
+            return self
+        else:
+            return self.__add__(other)
 
-    def __add__(self):
-        pass
+    def __add__(self,other):# needs work
+        new_list = mylist + other
+        return new_list [mylist,other]
 
-    def __mult__(self):
-        pass
+    def __mult__(self,other):
+        return Data(self.value * other.value)
 
     def __eq__(self, other):
         if len(self) != len(other): return False
@@ -177,28 +189,51 @@ class mylist:
             
     def extend(self):
         pass
-
+    # def getNode(self,data):
+    #     newNode = Node(data)
+    #     return newNode
     def insert(self,position,data):#no work
-        head = self.head
-        if(position < 1):
-            newNode = Node(data)
-            newNode.next = self.head
-            head = newNode
+        headNode = self.head
+        if (position < 1):
+            raise IndexError
+        if position == 1:
+            new_node = Node(data = data)
+            newNode.next = headNode
+            headNode = newNode
         else:
-            while (position != 0):
+            while(position != 0):
                 position -= 1
-
-                if (position == 1):
-                    newNode = data
-                    newNode = head.next
-                    head.next = newNode
+                if(position ==1):
+                    newNode = getnode()
+                    newNode.next = headNode.next
+                    headNode.next = newNode
                     break
-                head = head.next
-                if head == None:
+                if headNode == None:
                     break
             if position != 1:
-                print('position out of range')
-        return head
+                print("position out of range")
+        return headNode
+
+        # head = self.head
+        # if(position < 1):
+        #     newNode = Node(data)
+        #     newNode.next = self.head
+        #     head = newNode
+        # else:
+        #     while (position != 0):
+        #         position -= 1
+
+        #         if (position == 1):
+        #             newNode = data
+        #             newNode = head.next
+        #             head.next = newNode
+        #             break
+        #         head = head.next
+        #         if head == None:
+        #             break
+        #     if position != 1:
+        #         print('position out of range')
+        # return head
         
 
 
@@ -242,17 +277,18 @@ if __name__ == '__main__':
 
     
  
-    # x.append(6)
-    # y.append(6)
-    # x.append(2)
-    # y.append(2)
-    # x.append(3)
-    # y.append(3)
+    x.append(6)
+    y.append(6)
+    x.append(2)
+    y.append(2)
+    x.append(3)
+    y.append(3)
     print(x,y)
     # x.insert(2,69)
     # y.insert(2,69)
-    x.pop()
-    y.pop()
+    # x.pop()
+    # y.pop()
+    x + y
     print(x,y)
 
 
