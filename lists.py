@@ -9,7 +9,7 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
-        self.tail = data
+        
 
     def __str__(self):
         return "Node(" + str(self.data) + ")"
@@ -34,6 +34,7 @@ class Node:
 class mylist:
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def __getitem__(self, index):
 
@@ -193,26 +194,35 @@ class mylist:
     #     newNode = Node(data)
     #     return newNode
     def insert(self,position,data):#no work
-        headNode = self.head
-        if (position < 1):
-            raise IndexError
-        if position == 1:
-            new_node = Node(data = data)
-            newNode.next = headNode
-            headNode = newNode
+        inserted_node = Node(data = data)
+        head = self.head
+        self.tail = len(self)
+        tail = self.tail
+        breakpoint()
+        pointer = self.head
+        passes = 0
+        if temp != 0:
+            self.head.next = temp
+        if (position == 0):
+            temp = self.head
+            self.head = inserted_node
         else:
             while(position != 0):
-                position -= 1
-                if(position ==1):
-                    newNode = getnode()
-                    newNode.next = headNode.next
-                    headNode.next = newNode
-                    break
-                if headNode == None:
-                    break
-            if position != 1:
-                print("position out of range")
-        return headNode
+                pointer = self.head.next
+                passes += 1
+                if position == passes:
+                    position -= 1
+                    inserted_node = data
+                    pointer.next = inserted_node
+
+
+
+
+
+            
+            
+
+
 
         # head = self.head
         # if(position < 1):
@@ -284,8 +294,8 @@ if __name__ == '__main__':
     x.append(3)
     y.append(3)
     print(x,y)
-    # x.insert(2,69)
-    # y.insert(2,69)
+    x.insert(2,69)
+    y.insert(2,69)
     # x.pop()
     # y.pop()
     x + y
