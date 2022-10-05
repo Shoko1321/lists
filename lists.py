@@ -196,7 +196,6 @@ class mylist:
     def insert(self,position,data):#no work
         inserted_node = Node(data = data)
         head = self.head
-        self.tail = len(self)
         tail = self.tail
         breakpoint()
         pointer = self.head
@@ -212,8 +211,8 @@ class mylist:
                 passes += 1
                 if position == passes:
                     position -= 1
-                    inserted_node = data
-                    pointer.next = inserted_node
+                    
+                    pointer = inserted_node
 
 
 
