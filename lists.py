@@ -2,7 +2,6 @@
 
 
 
-from uuid import getnode
 
 
 class Node:
@@ -82,8 +81,10 @@ class mylist:
         new_list = mylist + other
         return new_list [mylist,other]
 
+    
+
     def __mult__(self,other):
-        return Data(self.value * other.value)
+        return data(self.value * other.value)
 
     def __eq__(self, other):
         if len(self) != len(other): return False
@@ -124,15 +125,18 @@ class mylist:
                 
             
         
-    def sort(self):
-        sorted = None
-        current = self.head
-        while (current != None):
-            next = current.next
-            sorted = sorted(sorted,current)
-            current = next
-        self.head = sorted
-        return self.head
+    def sort(self):#doesnt work
+        pass
+ 
+ 
+        # sorted = None
+        # current = self.head
+        # while (current != None):
+        #     next = current.next
+        #     sorted = sorted(sorted,current)
+        #     current = next
+        # self.head = sorted
+        # return self.head
 
     def index(self,data):
         current = self.head
@@ -168,6 +172,9 @@ class mylist:
                 count += 1
             current = current.next
         return count
+
+
+
     def copy(self):
 
         current = self.head
@@ -190,29 +197,50 @@ class mylist:
             
     def extend(self):
         pass
-    # def getNode(self,data):
-    #     newNode = Node(data)
-    #     return newNode
-    def insert(self,position,data):#no work
-        inserted_node = Node(data = data)
-        head = self.head
-        tail = self.tail
-        breakpoint()
-        pointer = self.head
-        passes = 0
-        if temp != 0:
-            self.head.next = temp
+
+
+
+    def insert(self,position,data):
         if (position == 0):
-            temp = self.head
-            self.head = inserted_node
+            n = Node(data = data)
+            n.next = self.head
+            self.head = n
+        
+        elif position >= len(self):
+            n = Node(data = data)
+            last = self.head
+            while(last.next):
+                last = last.next
+            last.next = n
         else:
-            while(position != 0):
-                pointer = self.head.next
-                passes += 1
-                if position == passes:
-                    position -= 1
-                    
-                    pointer = inserted_node
+            if position != 0:
+                n = Node(data = data)
+                index_track = 0
+                cur = self.head
+                while index_track != position -1:
+                    cur = self.head.next
+                    index_track +=1
+                if index_track == position -1:
+                    n = Node(data = data)
+                    prev_node = cur
+                    next_node = cur.next
+                    prev_node . next = n
+                    n.next = next_node
+
+
+
+
+          
+        
+        
+        
+            # b = self.head.next
+            # a = self.head
+            # self.head = inserted_node
+            # temp.next = b
+            
+
+
 
 
 
@@ -293,11 +321,11 @@ if __name__ == '__main__':
     x.append(3)
     y.append(3)
     print(x,y)
-    x.insert(2,69)
-    y.insert(2,69)
+    x.insert(0,69)
+    y.insert(0,69)
     # x.pop()
     # y.pop()
-    x + y
+    
     print(x,y)
 
 
@@ -315,21 +343,6 @@ if __name__ == '__main__':
     # print(y.count(3))
     # print(x.copy())
     # print(y.copy())
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # x.pop()
-    # y.pop()
     # print(x,y)
     # x.append(x)   x.copy(z)     x.extend(x)    x.insert(x)    x.remove(x)  
     # x.sort(x)  x.clear(x)    x.count(     x.index(x)     x.pop(x) 
