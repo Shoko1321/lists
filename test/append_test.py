@@ -1,5 +1,5 @@
 import unittest
-from lists import mylist, Node
+from lists import mylist
 
 class Append_Test(unittest.TestCase):
     def test_append1(self):

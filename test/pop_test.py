@@ -37,11 +37,12 @@ class Pop_Test(unittest.TestCase):
     def test_pop_4(self):
         x = mylist()
         y = []
-        x.append(6); 
-        x.append(2)
-        x.append(3)
+        x.append(6);y.append(6) 
+        x.append(2);y.append(2)
+        x.append(3);y.append(3)
         x.pop()
-        self.assertTrue(current.data == 3)
+        y.pop()
+        self.assertTrue(x==y)
 
 
     def test_pop_5(self):
@@ -68,3 +69,4 @@ class Pop_Test(unittest.TestCase):
         x = mylist()
         x.pop()
         self.assertRaises(IndexError)
+            
