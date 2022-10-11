@@ -4,6 +4,9 @@
 
 
 
+from configparser import InterpolationSyntaxError
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -125,18 +128,34 @@ class mylist:
                 
             
         
-    def sort(self):#doesnt work
-        pass
+    def sort(self):#wip
+        current = self.head
+        index = None
+        if(self.head == None):
+            return
+        else:
+            while(current != None):
+                index = current.next
+                while(index != None):
+                    if(current.data > index.data):
+                        temp = current.data
+                        current.data = index.data
+                        index.data = temp
+                    index = index.next
+                current = current.next
+            
+
+
+        
+
+            
+
+        
+
+
  
  
-        # sorted = None
-        # current = self.head
-        # while (current != None):
-        #     next = current.next
-        #     sorted = sorted(sorted,current)
-        #     current = next
-        # self.head = sorted
-        # return self.head
+
 
     def index(self,data):
         current = self.head
@@ -205,7 +224,6 @@ class mylist:
             n = Node(data = data)
             n.next = self.head
             self.head = n
-        
         elif position >= len(self):
             n = Node(data = data)
             last = self.head
@@ -227,63 +245,6 @@ class mylist:
                     prev_node . next = n
                     n.next = next_node
 
-
-
-
-          
-        
-        
-        
-            # b = self.head.next
-            # a = self.head
-            # self.head = inserted_node
-            # temp.next = b
-            
-
-
-
-
-
-
-
-            
-            
-
-
-
-        # head = self.head
-        # if(position < 1):
-        #     newNode = Node(data)
-        #     newNode.next = self.head
-        #     head = newNode
-        # else:
-        #     while (position != 0):
-        #         position -= 1
-
-        #         if (position == 1):
-        #             newNode = data
-        #             newNode = head.next
-        #             head.next = newNode
-        #             break
-        #         head = head.next
-        #         if head == None:
-        #             break
-        #     if position != 1:
-        #         print('position out of range')
-        # return head
-        
-
-
-        
-                
-        
-        
-        
-            
-
-            
-        
-        
     def remove(self,element):
         temp = self.head
         if(temp is not None):
@@ -314,17 +275,16 @@ if __name__ == '__main__':
 
     
  
-    x.append(6)
-    y.append(6)
-    x.append(2)
-    y.append(2)
-    x.append(3)
-    y.append(3)
+    x.append(27)
+    y.append(27)
+    x.append(-15)
+    y.append(-15)
+    x.append(69)
+    y.append(69)
     print(x,y)
-    x.insert(0,69)
-    y.insert(0,69)
-    # x.pop()
-    # y.pop()
+    x.sort()
+    y.sort()
+
     
     print(x,y)
 
