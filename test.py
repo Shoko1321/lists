@@ -1,10 +1,10 @@
 import unittest
 from lists import mylist
-from test.append_test import Append_Test
-from test.pop_test import Pop_Test
+from test.append_test import Append_Test # 7 tests
+from test.pop_test import Pop_Test # 6 tests
 #from test.add_test import Add_Test
-#from test.clear_test import Clear_Test
-from test.copy_test import Copy_Test
+from test.clear_test import Clear_Test # 6 tests
+from test.copy_test import Copy_Test # 7 tests
 #from test.count_test import Count_Test
 #from test.extend_test import Extend_Test
 #from test.index_test import Index_Test
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     Append_Test()
     Pop_Test()
     #Add_Test()
-    #Clear_Test()
+    Clear_Test()
     Copy_Test()
     #Count_Test()
     #Extend_Test()
