@@ -208,16 +208,17 @@ if __name__ == '__main__':
     z = [200]
     
  
-    # x.append(27)
-    # y.append(27)
-    # x.append(-15)
-    # y.append(-15)
-    # x.append(69)
-    # y.append(69)
+    x.append(27)
+    y.append(27)
+    x.append(-15)
+    y.append(-15)
+    x.append(69)
+    y.append(69)
     print(x,y)
+    zx= x.index(27)
+    zy = y.index(27) 
     
-    x.pop()
-    print(x,y)
+    print(zx,zy)
     
     # extend and magic functions left.
 
