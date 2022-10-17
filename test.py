@@ -12,7 +12,7 @@ from test.insert_test import Insert_Test # 6 tests
 #from test.mult_test import Mult_Test
 from test.remove_test import Remove_Test # 10 tests
 from test.reverse_test import Reverse_Test # 7 tests
-from test.sort_test import Sort_test
+from test.sort_test import Sort_Test
 
  
 
@@ -39,4 +39,4 @@ if __name__ == '__main__':
     #Mult_Test()
     Remove_Test()
     Reverse_Test()
-    Sort_test()
+    Sort_Test()
