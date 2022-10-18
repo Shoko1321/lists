@@ -86,7 +86,7 @@ class mylist:
         else:
             previous.next = current.next
         print(f'{current.data} was popped')
-    def sort(self):
+    def sort(self):#type error if both int and string in list, auto raises same error as built in function
         cur = self.head
         index = None
         if(self.head == None):
@@ -215,11 +215,7 @@ if __name__ == '__main__':
     x.append(69)
     y.append(69)
     print(x,y)
-    zx= x.index(27)
-    zy = y.index(27) 
-    
-    print(zx,zy)
-    
+
     # extend and magic functions left.
 
 
