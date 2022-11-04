@@ -10,6 +10,7 @@ class mylist:
     def __init__(self):
         self.head = None
         self.tail = None
+       
     def __getitem__(self, index):
         counter = 0
         current = self.head
@@ -43,22 +44,21 @@ class mylist:
             yield curNode.data
             curNode = curNode.next
 
-    def __radd__(self,other):#Should work?
-        pass
 
-    def __add__(self,other):# needs work
-        pass
 
+    def __add__(self,other_list):
+        return self + other_list
     
 
     def __mult__(self,other):
-        pass
+        return self * other
 
     def __eq__(self, other):
         if len(self) != len(other): return False
         for it in range(len(self)):
             if self[it] != other[it]: return False
         return True
+
     def append(self,data):
         new_node = Node(data = data)
         if self.head is None:
@@ -68,6 +68,7 @@ class mylist:
             while (last.next != None):
                 last = last.next
             last.next = new_node
+
     def pop(self,position=None):
         if self.head is None:
             raise IndexError
@@ -86,6 +87,7 @@ class mylist:
         else:
             previous.next = current.next
         print(f'{current.data} was popped')
+
     def sort(self):#type error if both int and string in list, auto raises same error as built in function
         cur = self.head
         index = None
@@ -101,6 +103,7 @@ class mylist:
                         index.data = temp
                     index = index.next
                 cur = cur.next
+
     def index(self,data):
         current = self.head
         count = 0
@@ -110,6 +113,7 @@ class mylist:
             count +=1
             current = current.next
         raise ValueError
+
     def reverse(self):
         prev = None
         curr = self.head
@@ -119,8 +123,10 @@ class mylist:
             prev = curr
             curr = next
         self.head = prev
+
     def clear(self):
        self.head = None
+
     def count(self,intake):
         current = self.head
         count = 0
@@ -129,6 +135,7 @@ class mylist:
                 count += 1
             current = current.next
         return count
+
     def copy(self):
         current = self.head
         newList = None
@@ -144,8 +151,11 @@ class mylist:
                 tail.next = None
             current = current.next
         return newList
-    def extend(self,data):
-        pass
+
+    def extend(self,list_to_add):
+
+
+
 
 
 
@@ -205,7 +215,7 @@ if __name__ == '__main__':
     node2 = Node(data= 0)
     x = mylist() 
     y = []
-    z = [200]
+   
     
  
     x.append(27)
@@ -215,6 +225,8 @@ if __name__ == '__main__':
     x.append(69)
     y.append(69)
     print(x,y)
+    z = x + y
+    print(z)
 
     # extend and magic functions left.
 

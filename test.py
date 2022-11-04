@@ -2,7 +2,7 @@ import unittest
 from lists import mylist
 from test.append_test import Append_Test # 7 tests
 from test.pop_test import Pop_Test # 6 tests
-#from test.add_test import Add_Test
+#from test.add_test import Add_T0est
 from test.clear_test import Clear_Test # 6 tests
 from test.copy_test import Copy_Test # 7 tests
 from test.count_test import Count_Test # 8 tests
