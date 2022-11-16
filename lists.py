@@ -153,15 +153,8 @@ class mylist:
         return newList
 
     def extend(self,list_to_add):
-
-
-
-
-
-
-
-
-
+        for x in list_to_add:
+            self.append(x)
 
     def insert(self,position,data):
         if (position == 0):
@@ -218,15 +211,14 @@ if __name__ == '__main__':
    
     
  
-    x.append(27)
-    y.append(27)
-    x.append(-15)
-    y.append(-15)
-    x.append(69)
-    y.append(69)
-    print(x,y)
-    z = x + y
-    print(z)
+    x.append(1)
+    y.append(4)
+    x.append(2)
+    y.append(5)
+    x.append(3)
+    y.append(6)    
+    x.extend(y)
+    print(x)
 
     # extend and magic functions left.
 

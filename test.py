@@ -33,7 +33,7 @@ if __name__ == '__main__':
     Clear_Test()
     Copy_Test()
     Count_Test()
-    #Extend_Test()
+    Extend_Test()
     Index_Test()
     Insert_Test()
     #Mult_Test()
