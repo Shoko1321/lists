@@ -6,7 +6,7 @@ from test.pop_test import Pop_Test # 6 tests
 from test.clear_test import Clear_Test # 6 tests
 from test.copy_test import Copy_Test # 7 tests
 from test.count_test import Count_Test # 8 tests
-#from test.extend_test import Extend_Test
+from test.extend_test import Extend_Test
 from test.index_test import Index_Test # 7 tests
 from test.insert_test import Insert_Test # 6 tests
 #from test.mult_test import Mult_Test
