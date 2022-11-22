@@ -30,6 +30,7 @@ class mylist:
             ret += ', '
         return ret[:-1] + '>'
     __repr__ = __str__
+
     def __len__(self):
         counter = 0
         current = self.head
@@ -46,12 +47,17 @@ class mylist:
 
 
 
-    def __add__(self,other_list):
-        return self + other_list
-    
+    def __add__(self,other):
+        for x in other:
+            self.append(x)
+        return self
 
-    def __mult__(self,other):
-        return self * other
+    def __mul__(self,other):
+        count = 0
+        while count != other:
+            self.extend(self)
+            count += 1
+        return self
 
     def __eq__(self, other):
         if len(self) != len(other): return False
@@ -211,14 +217,15 @@ if __name__ == '__main__':
    
     
  
-    x.append(1)
-    y.append(4)
-    x.append(2)
-    y.append(5)
-    x.append(3)
-    y.append(6)    
-    x.extend(y)
-    print(x)
+    x.append('one')
+    y.append('4')
+    x.append('2')
+    y.append('5')
+    x.append('3')
+    y.append('6')    
+    z = x*3
+    
+    print(z) 
 
     # extend and magic functions left.
 
