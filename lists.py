@@ -47,13 +47,24 @@ class mylist:
 
 
 
-    def __add__(self,other):
-        for x in other:
-            self.append(x)
-        return self
-
+    def __add__(self,list_to_add):
+        for x in list_to_add:
+            new_node = Node(data = x)
+            if self.head is None:
+                self.head = new_node
+                return
+            else:
+                last = self.head
+                while (last.next):
+                    last = last.next
+                last.next = new_node
     def __mul__(self,other):
-
+        count = 0
+        beans = self
+        while count != other:
+            count += 1
+            beans.extend(self)
+        return self
 
     def __eq__(self, other):
         if len(self) != len(other): return False
@@ -156,8 +167,15 @@ class mylist:
 
     def extend(self,list_to_add):
         for x in list_to_add:
-            self.append(x)
-        
+            new_node = Node(data = x)
+            if self.head is None:
+                self.head = new_node
+                return
+            else:
+                last = self.head
+                while (last.next):
+                    last = last.next
+                last.next = new_node
 
     def insert(self,position,data):
         if (position == 0):
@@ -219,12 +237,13 @@ if __name__ == '__main__':
     x.append('2')
     y.append('5')
     x.append('3')
-    y.append('6')    
-    z = x + y
+    y.append('6')   
+    breakpoint() 
+    z = x + x
     
     print(z) 
 
-    # extend and magic functions left.
+    # mul + tests and bugs
 
 
 
