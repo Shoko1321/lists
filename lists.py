@@ -53,11 +53,7 @@ class mylist:
         return self
 
     def __mul__(self,other):
-        count = 0
-        while count != other:
-            self.extend(self)
-            count += 1
-        return self
+
 
     def __eq__(self, other):
         if len(self) != len(other): return False
