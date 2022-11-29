@@ -157,6 +157,7 @@ class mylist:
     def extend(self,list_to_add):
         for x in list_to_add:
             self.append(x)
+        
 
     def insert(self,position,data):
         if (position == 0):
@@ -219,7 +220,7 @@ if __name__ == '__main__':
     y.append('5')
     x.append('3')
     y.append('6')    
-    z = x*3
+    z = x + y
     
     print(z) 
 
