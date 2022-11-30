@@ -51,3 +51,9 @@ tree = binary_search_tree()
 tree = fill_tree(tree)
 
 tree.print_tree()
+
+
+class mydict:
+    def __init__(self):
+        self.bt = binary_search_tree()
+        

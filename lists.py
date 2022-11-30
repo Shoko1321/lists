@@ -1,3 +1,4 @@
+import copy
 
 class Node:
     def __init__(self, data):
@@ -164,8 +165,9 @@ class mylist:
         return newList
 
     def extend(self,list_to_add):# cant extend a list if an item is a string of multiple characters
-        for x in list_to_add:
-            self.append(x)
+        list_to_add = copy.deepcopy(list_to_add)
+        for y in list_to_add:
+            self.append(y)
 
     def insert(self,position,data):
         if (position == 0):
@@ -229,8 +231,8 @@ if __name__ == '__main__':
     y.append('5')
     x.append('three')
     y.append('6')    
+    z.append('i have no idea')
     x.extend(x)
-    
     print(x) 
 
     # tests cases for add mul extend. Infinite loop caused by append?(recursion possibly?)
