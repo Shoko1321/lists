@@ -10,6 +10,6 @@ class Add_Test(unittest.TestCase):
         y.append('one'); y.append('two')
         q.append('one'); q.append('two')     
         x = q + x
-        z = y + y
-        self.assertTrue(x == z)
+        y + y
+        self.assertTrue(x == y)
    

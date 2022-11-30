@@ -47,23 +47,16 @@ class mylist:
 
 
 
-    def __add__(self,list_to_add):
-        for x in list_to_add:
-            new_node = Node(data = x)
-            if self.head is None:
-                self.head = new_node
-                return
-            else:
-                last = self.head
-                while (last.next):
-                    last = last.next
-                last.next = new_node
+    def __add__(self,other):
+        for x in other:
+            self.append(x)
+        return self
+
     def __mul__(self,other):
         count = 0
-        beans = self
         while count != other:
             count += 1
-            beans.extend(self)
+            self.extend(self)
         return self
 
     def __eq__(self, other):
@@ -74,13 +67,18 @@ class mylist:
 
     def append(self,data):
         new_node = Node(data = data)
+        print('check 1')
         if self.head is None:
             self.head = new_node  
         else:
             last = self.head
+            print('check2')
             while (last.next != None):
+                print(self)
                 last = last.next
             last.next = new_node
+            breakpoint()
+            print('check4')
 
     def pop(self,position=None):
         if self.head is None:
@@ -165,17 +163,9 @@ class mylist:
             current = current.next
         return newList
 
-    def extend(self,list_to_add):
+    def extend(self,list_to_add):# cant extend a list if an item is a string of multiple characters
         for x in list_to_add:
-            new_node = Node(data = x)
-            if self.head is None:
-                self.head = new_node
-                return
-            else:
-                last = self.head
-                while (last.next):
-                    last = last.next
-                last.next = new_node
+            self.append(x)
 
     def insert(self,position,data):
         if (position == 0):
@@ -228,22 +218,23 @@ if __name__ == '__main__':
     node1 = Node(data= 0)
     node2 = Node(data= 0)
     x = mylist() 
+    z = mylist()
     y = []
    
     
  
     x.append('one')
     y.append('4')
-    x.append('2')
+    x.append('two')
     y.append('5')
-    x.append('3')
-    y.append('6')   
-    breakpoint() 
-    z = x + x
+    x.append('three')
+    y.append('6')    
+    x.extend(x)
     
-    print(z) 
+    print(x) 
 
-    # mul + tests and bugs
+    # tests cases for add mul extend. Infinite loop caused by append?(recursion possibly?)
+
 
 
 
