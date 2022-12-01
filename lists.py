@@ -48,16 +48,18 @@ class mylist:
 
 
 
-    def __add__(self,other):
-        for x in other:
+    def __add__(self,list_to_add):
+        list_to_add = copy.deepcopy(list_to_add)
+        for x in list_to_add:
             self.append(x)
         return self
 
     def __mul__(self,other):
         count = 0
-        while count != other:
-            count += 1
-            self.extend(self)
+        self_copy = copy.deepcopy(self)
+        for x in range(other-1):
+            self.extend(self_copy)
+            count +=1
         return self
 
     def __eq__(self, other):
@@ -68,18 +70,13 @@ class mylist:
 
     def append(self,data):
         new_node = Node(data = data)
-        print('check 1')
         if self.head is None:
             self.head = new_node  
         else:
             last = self.head
-            print('check2')
             while (last.next != None):
-                print(self)
                 last = last.next
             last.next = new_node
-            breakpoint()
-            print('check4')
 
     def pop(self,position=None):
         if self.head is None:
@@ -164,7 +161,7 @@ class mylist:
             current = current.next
         return newList
 
-    def extend(self,list_to_add):# cant extend a list if an item is a string of multiple characters
+    def extend(self,list_to_add):
         list_to_add = copy.deepcopy(list_to_add)
         for y in list_to_add:
             self.append(y)
@@ -232,8 +229,7 @@ if __name__ == '__main__':
     x.append('three')
     y.append('6')    
     z.append('i have no idea')
-    x.extend(x)
-    print(x) 
+    print(x*4) 
 
     # tests cases for add mul extend. Infinite loop caused by append?(recursion possibly?)
 
