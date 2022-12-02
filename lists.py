@@ -7,6 +7,7 @@ class Node:
     def __str__(self):
         return "Node(" + str(self.data) + ")"
     __repr__ = __str__
+
 class mylist:
     def __init__(self):
         self.head = None
@@ -45,8 +46,6 @@ class mylist:
         while curNode:
             yield curNode.data
             curNode = curNode.next
-
-
 
     def __add__(self,list_to_add):
         list_to_add = copy.deepcopy(list_to_add)
@@ -97,7 +96,7 @@ class mylist:
             previous.next = current.next
         print(f'{current.data} was popped')
 
-    def sort(self):#type error if both int and string in list, auto raises same error as built in function
+    def sort(self):
         cur = self.head
         index = None
         if(self.head == None):
@@ -191,6 +190,7 @@ class mylist:
                     next_node = cur.next
                     prev_node . next = n
                     n.next = next_node
+
     def remove(self,element):
         temp = self.head
         if(temp is not None):
@@ -208,30 +208,13 @@ class mylist:
             raise ValueError
         prev.next = temp.next
         temp = None
-
-
-
-
         
 if __name__ == '__main__':
     node1 = Node(data= 0)
     node2 = Node(data= 0)
     x = mylist() 
-    z = mylist()
     y = []
-   
-    
- 
-    x.append('one')
-    y.append('4')
-    x.append('two')
-    y.append('5')
-    x.append('three')
-    y.append('6')    
-    z.append('i have no idea')
-    print(x*4) 
 
-    # tests cases for add mul extend. Infinite loop caused by append?(recursion possibly?)
 
 
 
