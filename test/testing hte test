@@ -1,0 +1,16 @@
+import random
+import string
+
+x = []
+y = []
+iter = 0
+
+for it in range(10**6):
+    rando = random.choice(string.ascii_letters)
+    x.append(rando)
+    y.append(rando)
+if x == y:
+    print('True')
+else:
+    print('False')
+

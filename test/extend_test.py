@@ -1,4 +1,6 @@
 import unittest
+import random
+import string
 from lists import mylist
 
 class Extend_Test(unittest.TestCase):
@@ -21,4 +23,15 @@ class Extend_Test(unittest.TestCase):
         y.append(1)
         y.extend(y)
         self.assertTrue(x == y)
+
+    def test_extend_3(self):
+        x = []
+        y = []
+        for it in range(5**6):
+            rando = random.choice(string.ascii_letters)
+            x.append(rando)
+            y.append(rando)
+        self.assertTrue(x == y)
+
+        
 

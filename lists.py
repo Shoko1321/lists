@@ -71,11 +71,14 @@ class mylist:
         new_node = Node(data = data)
         if self.head is None:
             self.head = new_node  
+            self.tail = self.head
         else:
             last = self.head
             while (last.next != None):
                 last = last.next
             last.next = new_node
+
+ 
 
     def pop(self,position=None):
         if self.head is None:
