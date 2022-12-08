@@ -76,7 +76,7 @@ class mylist:
             last = self.head
             while (last.next != None):
                 last = last.next
-            last.next = new_node
+            last.next = new_node# im too dumb to point to the tail apparently
 
  
 
@@ -217,6 +217,9 @@ if __name__ == '__main__':
     node2 = Node(data= 0)
     x = mylist() 
     y = []
+    x.append(1)
+    print(x)
+    print(y)
 
 
 
