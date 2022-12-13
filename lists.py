@@ -67,17 +67,19 @@ class mylist:
             if self[it] != other[it]: return False
         return True
 
+
     def append(self,data):
         new_node = Node(data = data)
         if self.head is None:
             self.head = new_node  
-            self.tail = self.head
+            return
         else:
             last = self.head
             while (last.next != None):
                 last = last.next
-            last.next = new_node# im too dumb to point to the tail apparently
-
+            last.next = new_node
+            self.tail = last.next
+            # im too dumb to point to the tail apparently
  
 
     def pop(self,position=None):
@@ -218,6 +220,9 @@ if __name__ == '__main__':
     x = mylist() 
     y = []
     x.append(1)
+    x.append(2)
+    x.append(3)
+    x.append('one')
     print(x)
     print(y)
 

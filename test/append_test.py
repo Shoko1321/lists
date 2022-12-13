@@ -1,4 +1,6 @@
 import unittest
+import random
+import string
 from lists import mylist
 
 class Append_Test(unittest.TestCase):
@@ -58,3 +60,12 @@ class Append_Test(unittest.TestCase):
         x.append(17);y.append(18)
         x.append(z);y.append(z)
         self.assertFalse(x==y)
+
+    # def test_append_8(self):
+    #     x = []
+    #     y = mylist()
+    #     for it in range(10**6):
+    #         rando = random.choice(string.ascii_letters)
+    #         x.append(it)
+    #         y.append(it)
+    #     self.assertTrue(x == y)

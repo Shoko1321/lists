@@ -26,11 +26,12 @@ class Extend_Test(unittest.TestCase):
 
     def test_extend_3(self):
         x = []
-        y = []
+        y = mylist()
         for it in range(5**6):
             rando = random.choice(string.ascii_letters)
             x.append(rando)
             y.append(rando)
+            
         self.assertTrue(x == y)
 
         
