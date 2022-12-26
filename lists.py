@@ -115,7 +115,7 @@ class mylist:
                         cur.data = index.data
                         index.data = temp
                     index = index.next
-                cur = cur.next
+                cur = cur.next 
 
     def index(self,data):
         current = self.head
