@@ -4,6 +4,7 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+        self.tail = None
     def __str__(self):
         return "Node(" + str(self.data) + ")"
     __repr__ = __str__
@@ -30,7 +31,7 @@ class mylist:
             ret += str(cur.data)
             cur = cur.next
             ret += ', '
-        return ret[:-1] + '>'
+        return ret[:-2] + '>'
     __repr__ = __str__
 
     def __len__(self):
@@ -41,7 +42,7 @@ class mylist:
             counter += 1
         return counter
 
-    def __iter__(self):#halp
+    def __iter__(self):
         curNode = self.head
         while curNode:
             yield curNode.data
@@ -71,15 +72,16 @@ class mylist:
     def append(self,data):
         new_node = Node(data = data)
         if self.head is None:
-            self.head = new_node  
-            return
+            self.head = new_node
+            self.tail = self.head
         else:
-            last = self.head
-            while (last.next != None):
-                last = last.next
-            last.next = new_node
-            self.tail = last.next
-            # im too dumb to point to the tail apparently
+            self.tail.next = new_node
+            self.tail = new_node
+
+
+
+
+            
  
 
     def pop(self,position=None):
@@ -217,14 +219,16 @@ class mylist:
 if __name__ == '__main__':
     node1 = Node(data= 0)
     node2 = Node(data= 0)
+    import time
+
+
     x = mylist() 
-    y = []
-    x.append(1)
-    x.append(2)
-    x.append(3)
-    x.append('one')
-    print(x)
-    print(y)
+    start_time = time.time()
+    for i in range(10**6):
+        x.append(i)
+    end_time = time.time()
+    time_taken = end_time - start_time
+    print("time taken", time_taken)
 
 
 

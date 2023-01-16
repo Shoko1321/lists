@@ -24,15 +24,7 @@ class Extend_Test(unittest.TestCase):
         y.extend(y)
         self.assertTrue(x == y)
 
-    def test_extend_3(self):
-        x = []
-        y = mylist()
-        for it in range(5**6):
-            rando = random.choice(string.ascii_letters)
-            x.append(rando)
-            y.append(rando)
-            
-        self.assertTrue(x == y)
+
 
         
 

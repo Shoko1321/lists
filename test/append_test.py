@@ -61,11 +61,10 @@ class Append_Test(unittest.TestCase):
         x.append(z);y.append(z)
         self.assertFalse(x==y)
 
-    # def test_append_8(self):
-    #     x = []
-    #     y = mylist()
-    #     for it in range(10**6):
-    #         rando = random.choice(string.ascii_letters)
-    #         x.append(it)
-    #         y.append(it)
-    #     self.assertTrue(x == y)
+    def test_append_8(self):
+        y = mylist()
+        for it in range(10**6):
+            rando = random.choice(string.ascii_letters)
+            y.append(rando)
+        list_size = len(y)
+        self.assertTrue(list_size == 1000000)
